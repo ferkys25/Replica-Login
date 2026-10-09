@@ -1,0 +1,202 @@
+/* Variables */
+:root {
+  --azul: #0b5ee8;
+  --azul-hover: #0849b8;
+  --fondo: #f2f2f4;
+  --campo: #ffffff;
+  --tinta: #1c1e2e;
+  --gris: #8a8fa1;
+  --radio: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--tinta);
+  background: var(--fondo);
+}
+
+/* Layout principal */
+.pagina {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+.lado-azul {
+  display: grid;
+  place-items: center;
+  background: var(--azul);
+}
+
+.marca {
+  color: #fff;
+  font-size: clamp(26px, 3vw, 35px);
+  font-weight: 700;
+}
+
+.lado-form {
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+
+/* Tarjeta del formulario */
+.formulario {
+  display: grid;
+  gap: 18px;
+  width: min(100%, 330px);
+}
+
+.saludo {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.saludo b {
+  font-weight: 700;
+}
+
+.indicacion {
+  margin-top: -6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--gris);
+}
+
+/* Campos */
+.bloque {
+  display: grid;
+  gap: 7px;
+}
+
+.etiqueta {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.caja {
+  padding: 14px 16px;
+  background: var(--campo);
+  border: 1px solid transparent;
+  border-radius: var(--radio);
+}
+
+.caja:focus-within {
+  border-color: var(--azul);
+}
+
+.caja input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  color: var(--tinta);
+}
+
+.caja input::placeholder {
+  color: #b9bdca;
+}
+
+/* Enlaces y botón */
+.olvido {
+  justify-self: end;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--azul);
+  text-decoration: none;
+}
+
+.boton-entrar {
+  justify-self: start;
+  margin-top: 13px;
+  padding: 14px 42px;
+  border: 0;
+  border-radius: var(--radio);
+  background: var(--azul);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.boton-entrar:hover,
+.boton-entrar:focus-visible {
+  background: var(--azul-hover);
+}
+
+.registro {
+  display: none;
+  text-align: center;
+  font-size: 12px;
+  color: var(--gris);
+}
+
+.registro a {
+  color: var(--azul);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+/* Tablet: el bloque azul da espacio al formulario */
+@media (max-width: 1100px) {
+  .pagina {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+/* Celular: una sola columna, sin bloque azul */
+@media (max-width: 720px) {
+  .pagina {
+    grid-template-columns: 1fr;
+  }
+
+  .lado-azul {
+    display: none;
+  }
+
+  .lado-form {
+    align-items: start;
+    padding: 64px 24px 32px;
+  }
+
+  .formulario {
+    width: min(100%, 440px);
+  }
+
+  .olvido {
+    margin-top: -5px;
+  }
+
+  .boton-entrar {
+    justify-self: stretch;
+    margin-top: 3px;
+  }
+
+  .registro {
+    display: block;
+  }
+}
+
+/* Pantalla pequeño */
+@media (max-width: 380px) {
+  .lado-form {
+    padding: 48px 16px 24px;
+  }
+
+  .saludo {
+    font-size: 21px;
+  }
+}
